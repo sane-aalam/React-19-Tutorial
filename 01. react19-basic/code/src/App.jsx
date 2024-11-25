@@ -12,6 +12,7 @@ import React from "react";
 // <h1>This is Heading Tag.</h1>
 
 // #2 Interview Question --> what is components?
+// components is normal js function,which return JSX!
 // components are the building blocks of the user interface. They let you split the UI into independent, reusable pieces, and think about each piece in isolation. Components can be written as JavaScript functions or classes.
 
 // #3 Interview Quesiton --> what is props?
@@ -23,7 +24,53 @@ import React from "react";
 // ImageContainer:
 // "https://images.javatpoint.com/top10-technologies/images/top-10-netflix-series-of-all-time2.png"
 
-function Card(props) {
+// Just for pratice!
+// variable used to pass data
+// we will learn how to pass API:(data)
+// we will learn how to map,filter,reduce,props using API
+
+// const Heading1 = "Daredevil (2015- 2018)";
+// const Heading2 = "Money Heist (2020-2023)";
+// const Heading3 = "Narcos (2015-2017)";
+// const IMG_FIRST =
+//   "https://images.javatpoint.com/top10-technologies/images/top-10-netflix-series-of-all-time2.png";
+// const IMG_SECOND =
+//   "https://images.javatpoint.com/top10-technologies/images/top-10-netflix-series-of-all-time1.png";
+// const IMG_THRID =
+//   "https://images.javatpoint.com/top10-technologies/images/top-10-netflix-series-of-all-time3.png";
+// const IMG_FOUR =
+
+// DRY principle - DON'T REPEAT YOURSELF!
+// <Card Heading={Heading1} ImageContainer={IMG_FIRST} />
+// <Card Heading={Heading2} ImageContainer={IMG_SECOND} />
+// <Card Heading={Heading3} ImageContainer={IMG_THRID} />
+
+// #4 Interview Question : What is React.Fragment?
+// > need wrap to return mutiple elements in componets
+// > we don't need extra div,so in-order to remove this extra div,we have to React.Fragment
+// > help into DOM manuplicaiton (VirtaulDOM)
+// > improvement into DOM
+// > code fast reloading
+// > HOt reaplcement model 
+// > you can use (<> </>) this short-cut.
+
+// Local API : Rendering a List from an Array of Objects
+const netfixData = [
+  {
+    Heading: "Daredevil (2015- 2018)",
+    IMG: "https://images.javatpoint.com/top10-technologies/images/top-10-netflix-series-of-all-time2.png",
+  },
+  {
+    Heading: "Money Heist (2020-2023)",
+    IMG: "https://images.javatpoint.com/top10-technologies/images/top-10-netflix-series-of-all-time1.png",
+  },
+  {
+    Heading: "Narcos (2015-2017)",
+    IMG: "https://images.javatpoint.com/top10-technologies/images/top-10-netflix-series-of-all-time3.png",
+  },
+];
+
+const Card = (props) => {
   const { Heading, ImageContainer } = props;
   console.log(ImageContainer);
   return (
@@ -42,33 +89,20 @@ function Card(props) {
       <button class="card-button">Watch Now</button>
     </div>
   );
-}
-
-// Just for pratice!
-// variable used to pass data
-// we will learn how to pass API:(data)
-// we will learn how to map,filter,reduce,props using API
-const Heading1 = "Daredevil (2015- 2018)";
-const Heading2 = "Money Heist (2020-2023)";
-const Heading3 = "Narcos (2015-2017)";
-const Heading4 = "Top boy (2020-2020)";
-const IMG_FIRST =
-  "https://images.javatpoint.com/top10-technologies/images/top-10-netflix-series-of-all-time2.png";
-const IMG_SECOND =
-  "https://images.javatpoint.com/top10-technologies/images/top-10-netflix-series-of-all-time1.png";
-const IMG_THRID =
-  "https://images.javatpoint.com/top10-technologies/images/top-10-netflix-series-of-all-time3.png";
-const IMG_FOUR =
-  "https://images.javatpoint.com/top10-technologies/images/top-10-netflix-series-of-all-time4.png";
+};
 
 function App() {
   return (
     <>
       <div style={{ display: "flex", flexDirection: "row", gap: 10 }}>
-        <Card Heading={Heading1} ImageContainer={IMG_FIRST} />
-        <Card Heading={Heading2} ImageContainer={IMG_SECOND} />
-        <Card Heading={Heading3} ImageContainer={IMG_THRID} />
-        <Card Heading={Heading4} ImageContainer={IMG_FOUR} />
+        {netfixData.map((netfixCard) => {
+          return (
+            <Card
+              Heading={netfixCard.Heading}
+              ImageContainer={netfixCard.IMG}
+            />
+          );
+        })}
       </div>
     </>
   );
