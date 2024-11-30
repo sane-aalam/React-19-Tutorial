@@ -1,4 +1,4 @@
-[
+export const netflixSeriesData = [
   {
     name: "Lovely Runner",
     id: "lovely-runner",

@@ -1,0 +1,76 @@
+
+/* Card Container */
+.netflix-card {
+    position: relative;
+    width: 300px; /* Card width */
+    height: 450px; /* Card height */
+    border-radius: 10px; /* Rounded corners */
+    overflow: hidden; /* Ensure content stays within bounds */
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Card Image */
+  .card-image {
+    width: 90%;
+    height: 80%;
+    object-fit: cover; /* Ensure the image fills the container */
+    transition: transform 0.3s ease; /* Smooth image scaling */
+  }
+  
+  /* Card Content Overlay */
+  .card-content {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)); /* Gradient overlay */
+    color: white; /* Text color */
+    text-align: center; /* Center text */
+    transform: translateY(100%); /* Hide content initially */
+    transition: transform 0.3s ease; /* Smooth reveal */
+  }
+  
+  /* Card Title */
+  .card-title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  /* Card Button */
+  .card-button {
+    margin-top: 10px;
+    background-color: #e50914; /* Netflix red */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .card-button:hover {
+    background-color: #f40612; /* Lighter red on hover */
+    transform: scale(1.1); /* Slightly enlarge */
+  }
+  
+  /* Hover Effects */
+  .netflix-card:hover {
+    transform: scale(1.05); /* Slightly enlarge the card */
+    box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.3); /* More prominent shadow */
+  }
+  
+  .netflix-card:hover .card-image {
+    transform: scale(1.1); /* Slightly enlarge the image */
+  }
+  
+  .netflix-card:hover .card-content {
+    transform: translateY(0); /* Slide up the content */
+  }
+  

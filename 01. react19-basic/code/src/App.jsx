@@ -51,28 +51,36 @@ import React from "react";
 // > help into DOM manuplicaiton (VirtaulDOM)
 // > improvement into DOM
 // > code fast reloading
-// > HOt reaplcement model 
+// > HOt reaplcement model
 // > you can use (<> </>) this short-cut.
+
+// Assignment-1
+// React Conditon rendering in JSX
+// According to user AGE:
+// if user age can be greater than 21, then only user can watch the netfix series
+// other, not able to watch
 
 // Local API : Rendering a List from an Array of Objects
 const netfixData = [
   {
     Heading: "Daredevil (2015- 2018)",
     IMG: "https://images.javatpoint.com/top10-technologies/images/top-10-netflix-series-of-all-time2.png",
+    Age: 21,
   },
   {
     Heading: "Money Heist (2020-2023)",
     IMG: "https://images.javatpoint.com/top10-technologies/images/top-10-netflix-series-of-all-time1.png",
+    Age: 18,
   },
   {
     Heading: "Narcos (2015-2017)",
     IMG: "https://images.javatpoint.com/top10-technologies/images/top-10-netflix-series-of-all-time3.png",
+    Age: 8,
   },
 ];
 
 const Card = (props) => {
-  const { Heading, ImageContainer } = props;
-  console.log(ImageContainer);
+  const { Heading, ImageContainer, Age } = props;
   return (
     <div
       className="netflix-card"
@@ -86,7 +94,9 @@ const Card = (props) => {
         up to the crossover miniseries The Defenders. Daredevil was co-produced
         by Marvel Television and ABC Studios.
       </p>
-      <button class="card-button">Watch Now</button>
+      <button class="card-button">
+        {Age > 18 ? "Not avaiable" : "Watch Now"}
+      </button>
     </div>
   );
 };
@@ -100,6 +110,7 @@ function App() {
             <Card
               Heading={netfixCard.Heading}
               ImageContainer={netfixCard.IMG}
+              age={netfixCard.Age}
             />
           );
         })}
